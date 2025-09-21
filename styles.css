@@ -1,0 +1,166 @@
+body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    background-image: url(/images/2.jpg);
+    background-size: cover;    
+    background-repeat: no-repeat; 
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calculator {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(139, 0, 0, 0.3);
+    border: 1px solid rgba(255, 182, 193, 0.3);
+    max-width: 320px;
+    width: 100%;
+}
+
+.calculator-header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #8B0000;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+#display {
+    width: 100%;
+    height: 70px;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: right;
+    padding: 15px;
+    border: 2px solid #FF6B6B;
+    border-radius: 12px;
+    background: #FFF5F5;
+    color: #8B0000;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#display:focus {
+    border-color: #DC143C;
+    box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.2);
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    height: 65px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: #FFFFFF;
+    color: #8B0000;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(220, 20, 60, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(220, 20, 60, 0.4);
+}
+
+.operator {
+    background: linear-gradient(135deg, #DC143C, #B22222);
+    color: white;
+}
+
+.operator:hover {
+    background: linear-gradient(135deg, #C41E3A, #A0191C);
+}
+
+.equal {
+    grid-column: span 2;
+    background: linear-gradient(135deg, #FF4500, #FF6347);
+    color: white;
+    font-size: 1.4rem;
+}
+
+.equal:hover {
+    background: linear-gradient(135deg, #E53E3E, #D73027);
+}
+
+.clear {
+    background: linear-gradient(135deg, #8B0000, #660000);
+    color: white;
+}
+
+.clear:hover {
+    background: linear-gradient(135deg, #A0191C, #7A0000);
+}
+
+.number {
+    background: #FFFFFF;
+    border: 1px solid #FFB3BA;
+}
+
+.number:hover {
+    background: #FFF0F0;
+    border-color: #FF8A80;
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+/* Hiệu ứng ripple khi click */
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+button:active::before {
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .calculator {
+        margin: 10px;
+        padding: 20px;
+    }
+    
+    button {
+        height: 55px;
+        font-size: 1.1rem;
+    }
+    
+    #display {
+        font-size: 1.8rem;
+        height: 60px;
+    }
+}
